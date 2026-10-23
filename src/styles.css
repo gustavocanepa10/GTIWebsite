@@ -46,7 +46,7 @@
 
 :root {
   --radius: 0.875rem;
-  --navy: oklch(0.27 0.06 270);          /* #1C2548 */
+  --navy: #1b2548;                     /* Matches the official logo's JPEG background. */
   --navy-soft: oklch(0.33 0.06 270);
   --navy-foreground: oklch(0.98 0.005 260);
   --navy-muted: oklch(0.78 0.03 265);
@@ -81,6 +81,8 @@
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 6rem; }
+  main:focus { outline: none; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -121,4 +123,8 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+.skip-link { position: fixed; left: 1rem; top: 1rem; z-index: 100; transform: translateY(-200%); border-radius: 999px; padding: 0.75rem 1.25rem; background: var(--orange); color: white; font-weight: 600; }
+.skip-link:focus { transform: none; }
