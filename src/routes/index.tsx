@@ -72,10 +72,10 @@ function Hero() {
             </a>
           </div>
         </Reveal>
-        <Reveal delay={150} className="relative mx-auto mt-14 max-w-6xl md:mt-16">
+        <Reveal delay={150} className="relative mx-auto mt-12 max-w-6xl md:mt-14">
           <div className="relative translate-y-16 md:translate-y-24">
             <Screenshot shot={shots.conversas} eager />
-            <div className="absolute -bottom-10 -right-2 hidden w-40 md:block lg:-right-10 lg:w-52">
+            <div className="absolute -bottom-10 -right-2 hidden w-40 md:block lg:-right-6 lg:w-48">
               <Screenshot shot={shots.webphone} frame={false} className="rounded-2xl" />
             </div>
           </div>
