@@ -1,4 +1,4 @@
-  name: Deploy GTI Networks
+ name: Deploy GTI Networks
 
 on:
   push:
