@@ -8,6 +8,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesAtendimentoRouteImport } from './routes/solucoes.atendimento'
 import { Route as SolucoesAutomacoesRouteImport } from './routes/solucoes.automacoes'
+import { Route as SolucoesDiscadorRouteImport } from './routes/solucoes.discador'
 import { Route as SolucoesRelatoriosRouteImport } from './routes/solucoes.relatorios'
 import { Route as SolucoesTelefoniaRouteImport } from './routes/solucoes.telefonia'
 
@@ -26,6 +27,11 @@ const SolucoesAutomacoesRoute = SolucoesAutomacoesRouteImport.update({
   path: '/solucoes/automacoes',
   getParentRoute: () => rootRouteImport,
 })
+const SolucoesDiscadorRoute = SolucoesDiscadorRouteImport.update({
+  id: '/solucoes/discador',
+  path: '/solucoes/discador',
+  getParentRoute: () => rootRouteImport,
+})
 const SolucoesRelatoriosRoute = SolucoesRelatoriosRouteImport.update({
   id: '/solucoes/relatorios',
   path: '/solucoes/relatorios',
@@ -41,6 +47,7 @@ const rootRouteChildren = {
   IndexRoute: IndexRoute,
   SolucoesAtendimentoRoute: SolucoesAtendimentoRoute,
   SolucoesAutomacoesRoute: SolucoesAutomacoesRoute,
+  SolucoesDiscadorRoute: SolucoesDiscadorRoute,
   SolucoesRelatoriosRoute: SolucoesRelatoriosRoute,
   SolucoesTelefoniaRoute: SolucoesTelefoniaRoute,
 }

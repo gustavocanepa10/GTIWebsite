@@ -57,7 +57,8 @@ export function Screenshot({ shot, className, frame = true, eager = false }) {
           type="button"
           aria-label={`Ampliar: ${shot.alt}`}
           className={cn(
-            "group relative block w-full overflow-hidden rounded-2xl bg-card text-left shadow-shot transition-transform duration-500 hover:-translate-y-1 motion-reduce:transform-none",
+            "group relative block w-full overflow-hidden rounded-2xl bg-card text-left shadow-shot transition-transform duration-500 hover:-translate-y-1 motion-reduce:transform-none [clip-path:inset(1px_round_1rem)]",
+            !frame && "bg-transparent",
             className,
           )}
         >

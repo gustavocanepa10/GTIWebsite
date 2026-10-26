@@ -112,7 +112,32 @@ export function SolutionPage({ productKey }) {
                 </div>
               </Reveal>
               <Reveal delay={100} className="min-w-0">
-                <Screenshot shot={product.shot} eager />
+                {product.shot ? (
+                  <Screenshot shot={product.shot} eager />
+                ) : (
+                  <div className="rounded-3xl border border-teal/30 bg-navy-soft p-7 md:p-10">
+                    <h2 className="text-2xl font-semibold">Como o discador apoia sua operação</h2>
+                    <p className="mt-4 leading-relaxed text-navy-muted">
+                      O discador automático agiliza as chamadas de saída, reduzindo a necessidade
+                      de digitar cada número manualmente e ajudando a equipe a se concentrar nas conversas.
+                    </p>
+                    <ul className="mt-7 space-y-5">
+                      {product.features.map(([title, description]) => (
+                        <li key={title} className="flex items-start gap-3">
+                          <Check className="mt-1 h-5 w-5 shrink-0 text-lime" aria-hidden="true" />
+                          <div>
+                            <h3 className="font-semibold">{title}</h3>
+                            <p className="mt-1 text-sm leading-relaxed text-navy-muted">{description}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-7 border-t border-teal/20 pt-5 text-sm leading-relaxed text-navy-muted">
+                      Na demonstração, conheça o funcionamento do discador e alinhe a configuração
+                      às necessidades da sua equipe.
+                    </p>
+                  </div>
+                )}
               </Reveal>
             </div>
           </div>

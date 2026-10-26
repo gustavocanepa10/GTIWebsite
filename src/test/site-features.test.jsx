@@ -250,11 +250,11 @@ describe("Route metadata", () => {
         path: `/solucoes/${key}`,
       }),
     );
-    expect(new Set(heads.map((head) => head.meta.find((meta) => meta.title).title)).size).toBe(4);
+    expect(new Set(heads.map((head) => head.meta.find((meta) => meta.title).title)).size).toBe(heads.length);
     expect(
       new Set(heads.map((head) => head.meta.find((meta) => meta.name === "description").content))
         .size,
-    ).toBe(4);
+    ).toBe(heads.length);
   });
   it("includes canonical only when the official URL is configured", () => {
     vi.stubEnv("VITE_SITE_URL", "");

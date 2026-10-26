@@ -3,6 +3,8 @@ import { Footer } from "@/components/site/Footer";
 import { SectionHead } from "@/components/site/SectionHead";
 import { Videos } from "@/components/site/VideoDemo";
 import { heroShot } from "@/data/site";
+import heroBackground from "@/assets/hero-tecnologia-smooth.png";
+import { ChannelOrbit } from "@/components/site/ChannelOrbit";
 import { ChannelOverview } from "@/components/site/ChannelOverview";
 import { ScreenGallery } from "@/components/site/ScreenGallery";
 import { Implementation } from "@/components/site/Implementation";
@@ -17,6 +19,7 @@ import {
   Phone,
   Workflow,
   Headset,
+  PhoneOutgoing,
 } from "lucide-react";
 import { Logo } from "@/components/site/Logo";
 import { Header } from "@/components/site/Header";
@@ -27,7 +30,7 @@ export const Route = createFileRoute("/")({
   head: () => pageHead(),
   component: Index,
 });
-const icons = { Phone, MessagesSquare, Workflow, BarChart3 };
+const icons = { Phone, MessagesSquare, Workflow, BarChart3, PhoneOutgoing };
 const demos = [
   {
     eyebrow: "Atendimento omnichannel",
@@ -92,6 +95,7 @@ function Index() {
         <Platform />
         <ChannelOverview />
         <Telephony />
+        <AutoDialer />
         <Benefits />
         <Videos />
         <ScreenGallery />
@@ -107,43 +111,48 @@ function Index() {
 function Hero() {
   return (
     <section className="relative bg-navy pt-24 text-navy-foreground md:pt-28">
-      <div className="grid-dots absolute inset-0" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-20 h-[560px] overflow-hidden bg-[#031c43] md:top-24 lg:h-[620px]"
+        aria-hidden="true"
+      >
+        <img
+          src={heroBackground}
+          alt=""
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-right opacity-25 lg:opacity-100"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-navy to-transparent" />
+      </div>
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <h1 className="mt-4 text-[clamp(2.1rem,4.5vw,3.75rem)] font-bold leading-[1.08]">
-            Sua comunicação <span className="text-orange">em um só lugar.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-navy-muted md:text-lg">
-            Centralize o atendimento omnichannel, integre sua telefonia IP, automatize processos e
-            acompanhe sua operação com a plataforma GTI Networks.
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href={contactUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground transition hover:brightness-110"
-            >
-              Solicitar demonstração <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#plataforma"
-              className="inline-flex items-center justify-center rounded-full border border-navy-soft px-7 py-3.5 font-semibold text-navy-foreground transition hover:bg-navy-soft"
-            >
-              Conhecer a plataforma
-            </a>
-          </div>
-          <ul
-            aria-label="Pilares da plataforma"
-            className="mt-7 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs font-medium text-navy-muted sm:text-sm"
-          >
-            {["Atendimento omnichannel", "Telefonia IP", "Automações", "Relatórios"].map(
-              (pillar) => (
-                <li key={pillar}>{pillar}</li>
-              ),
-            )}
-          </ul>
-        </Reveal>
+        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
+          <Reveal className="mx-auto flex min-h-[500px] max-w-3xl flex-col justify-center py-8 text-center lg:mx-0 lg:min-h-[570px] lg:py-12 lg:text-left">
+            <h1 className="mt-4 text-[clamp(2.1rem,4.5vw,3.75rem)] font-bold leading-[1.08]">
+              Sua comunicação <span className="text-orange">em um só lugar.</span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base text-navy-muted md:text-lg lg:mx-0">
+              Centralize o atendimento omnichannel, integre sua telefonia IP, automatize processos e
+              acompanhe sua operação com a plataforma GTI Networks.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
+              <a
+                href={contactUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground transition hover:brightness-110"
+              >
+                Solicitar demonstração <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#plataforma"
+                className="inline-flex items-center hover:bg-orange-500 justify-center rounded-full border border-navy-soft px-7 py-3.5 font-semibold text-navy-foreground transition"
+              >
+                Conhecer a plataforma
+              </a>
+            </div>
+           
+          </Reveal>
+          <ChannelOrbit />
+        </div>
         <Reveal delay={150} className="relative mx-auto mt-8 max-w-6xl md:mt-10">
           <div className="relative translate-y-10 md:translate-y-12">
             <Screenshot shot={heroShot} eager />
@@ -169,7 +178,11 @@ function Solutions() {
           {solutions.map((s, i) => {
             const Icon = icons[s.icon];
             return (
-              <Reveal key={s.key} delay={i * 60} className="h-full">
+              <Reveal
+                key={s.key}
+                delay={i * 60}
+                className={`h-full ${solutions.length % 2 !== 0 && i === solutions.length - 1 ? "sm:col-span-2" : ""}`}
+              >
                 <Link
                   to={s.href}
                   className="group flex h-full flex-col bg-card p-7 transition-colors hover:bg-secondary md:p-8"
@@ -270,6 +283,78 @@ function Telephony() {
     </section>
   );
 }
+function AutoDialer() {
+  const features = [
+    {
+      title: "Automatize a discagem",
+      text: "Dê agilidade às chamadas de saída com o discador automático.",
+    },
+    {
+      title: "Concentre-se na conversa",
+      text: "Reduza o trabalho de discagem manual para dedicar mais atenção ao contato com o cliente.",
+    },
+    {
+      title: "Acompanhe os resultados",
+      text: "Consulte o relatório de saída de voz para analisar as chamadas realizadas, atendidas e não atendidas.",
+    },
+  ];
+
+  return (
+    <section id="discador-automatico" className="scroll-mt-24 bg-secondary py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <span className="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-accent text-accent-foreground">
+              <PhoneOutgoing className="h-7 w-7" aria-hidden="true" />
+            </span>
+            <SectionHead
+              eyebrow="Discador Automático"
+              title="Mais agilidade para conectar sua equipe aos clientes"
+              text="Automatize a discagem das chamadas de saída e simplifique a rotina de contato da sua operação. Conheça o discador automático da GTI Networks em uma demonstração."
+            />
+            <a
+              href={`${contactUrl.split("?")[0]}?text=${encodeURIComponent("Olá! Gostaria de solicitar uma demonstração do Discador Automático da GTI Networks.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground transition hover:brightness-110"
+            >
+              Conhecer o discador <ArrowRight className="h-4 w-4" />
+            </a>
+          </Reveal>
+          <div className="space-y-4">
+            {features.map((feature, index) => (
+              <Reveal key={feature.title} delay={index * 60}>
+                <div className="flex gap-5 rounded-2xl border bg-card p-6 md:p-7">
+                  <span
+                    className="font-display text-sm font-semibold text-primary"
+                    aria-hidden="true"
+                  >
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-semibold">{feature.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {feature.text}
+                    </p>
+                    {index === 2 && (
+                      <Link
+                        to="/solucoes/relatorios"
+                        className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary"
+                      >
+                        Explorar relatórios <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Benefits() {
   return (
     <section id="beneficios" className="scroll-mt-24 py-20 md:py-28">

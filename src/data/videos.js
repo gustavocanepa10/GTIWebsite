@@ -12,7 +12,7 @@ export const videoDemos = [
   },
   {
     id: "atendimento",
-    title: "Atendimento omnichannel",
+    title: "Atendimento",
     path: "/videos/atendimento.mp4",
     alternatives: ["/videos/apresentacaoV2.mp4"],
     poster: shots.conversas,

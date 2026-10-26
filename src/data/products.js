@@ -1,6 +1,23 @@
 import { shots } from "./site";
 
 export const products = {
+  discador: {
+    title: "Discador Automático",
+    headline: "Mais agilidade para conectar sua equipe aos clientes.",
+    description:
+      "Automatize a discagem das chamadas de saída e simplifique a rotina de contato da sua operação com o discador automático da GTI Networks.",
+    features: [
+      ["Discagem automática", "Dê agilidade às chamadas de saída com menos trabalho de discagem manual."],
+      ["Foco na conversa", "Dedique mais atenção ao contato com o cliente durante o atendimento."],
+      ["Resultados das chamadas", "Consulte o relatório de saída de voz para acompanhar chamadas realizadas, atendidas e não atendidas."],
+    ],
+    benefits: [
+      "Mais agilidade na rotina de contato.",
+      "Menos trabalho de discagem manual.",
+      "Indicadores de saída de voz para acompanhar a operação.",
+    ],
+    related: ["telefonia", "relatorios", "atendimento"],
+  },
   atendimento: {
     title: "Atendimento Omnichannel",
     headline: "Todos os seus atendimentos organizados em um só lugar.",
@@ -144,10 +161,22 @@ export const reports = [
     benefit: "Identifique os caminhos percorridos no fluxo durante o intervalo selecionado.",
     shot: shots.calor,
   },
+  {
+    id: "saida",
+    title: "Saída de Ligações",
+    description:
+      "Acompanhe as chamadas originadas pelos ramais e a distribuição dos resultados das ligações.",
+    points: [
+      "Realizadas, atendidas e não atendidas",
+      "Chamadas transferidas",
+      "Tempo total e tempo médio de atendimento",
+    ],
+    benefit: "Consulte os indicadores e os resultados das chamadas de saída.",
+    shot: shots.saida,
+  },
   ...[
     ["atividades", "Atividades dos Atendentes"],
     ["buscar", "Buscar"],
-    ["saida", "Saída de Ligações"],
     ["etiquetas", "Etiquetas"],
     ["pesquisas", "Pesquisas"],
   ].map(([id, title]) => ({

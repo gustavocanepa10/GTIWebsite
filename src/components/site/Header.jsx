@@ -49,9 +49,9 @@ export function Header() {
           scrolled && "shadow-soft",
         )}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 md:h-20 md:px-8">
-          <Link to="/" className="shrink-0" aria-label="GTI Networks — início">
-            <Logo className="h-12 w-auto md:h-[72px]" />
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-5 md:h-24 md:px-8">
+          <Link to="/" hash="inicio" className="shrink-0" aria-label="GTI Networks — início">
+            <Logo className="h-16 w-auto md:h-20" />
           </Link>
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
             <DropdownMenu.Root modal={false}>

@@ -12,7 +12,7 @@ export const galleryGroups = [
   {
     id: "relatorios",
     title: "Relatórios",
-    images: [shots.relatorio, shots.entrada, shots.calor, shots.graficos],
+    images: [shots.relatorio, shots.entrada, shots.saida, shots.calor, shots.graficos],
   },
 ];
 

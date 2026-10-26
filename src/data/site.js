@@ -1,4 +1,5 @@
-import relatorio from "@/assets/relatorioChat.png";
+import relatorio from "@/assets/novoRelatorioDeChat.png";
+import saida from "@/assets/novoRelatorioSaidaDeVoz.png";
 import pausas from "@/assets/atendimentoPausas.png";
 import conversas from "@/assets/atendimentoChat.png";
 import novoAtendimento from "@/assets/iniciarAtendimento.png";
@@ -8,14 +9,14 @@ import automacao from "@/assets/automaçoes.png";
 import filas from "@/assets/atendimentoFila.png";
 import voz from "@/assets/atendimentoVoz.png";
 import calor from "@/assets/mapaCalor.png";
-import entrada from "@/assets/relatorioEntrada.png";
+import entrada from "@/assets/novoRelatorioDeEntrada.png";
 import graficos from "@/assets/gráficos.png";
 export const shots = {
   relatorio: {
     src: relatorio,
     alt: "Relatório consolidado de chat da plataforma GTI",
-    w: 1575,
-    h: 913,
+    w: 1432,
+    h: 858,
   },
   pausas: { src: pausas, alt: "Tela de gestão de pausas dos atendentes", w: 1902, h: 901 },
   conversas: {
@@ -64,8 +65,14 @@ export const shots = {
   entrada: {
     src: entrada,
     alt: "Relatório de ligações de entrada com indicadores e exportações",
-    w: 1584,
-    h: 903,
+    w: 1271,
+    h: 799,
+  },
+  saida: {
+    src: saida,
+    alt: "Relatório de saída de voz com indicadores e resultado das chamadas",
+    w: 1199,
+    h: 818,
   },
   graficos: {
     src: graficos,
@@ -77,6 +84,13 @@ export const shots = {
 // No supplied capture shows an open conversation. Replace this reference when one is available.
 export const heroShot = shots.conversas;
 export const solutions = [
+  {
+    key: "discador",
+    href: "/solucoes/discador",
+    title: "Discador Automático",
+    text: "Automatize a discagem e agilize as chamadas de saída da sua equipe.",
+    icon: "PhoneOutgoing",
+  },
   {
     key: "telefonia",
     href: "/solucoes/telefonia",
@@ -141,7 +155,7 @@ export const benefits = [
 export const contact = {
   phone: "+55 (21) 2203-7888",
   whatsapp: "+55 (21) 2203-7888",
-  phones: ["(21) 2203-7888", "(21) 2203-7800", "(21) 2203-7801"],
+  phones: ["(21) 2203-7888"],
   email: "suporte@gtinetworks.com.br",
   address: "",
   instagram: "https://www.instagram.com/gtitecnologia_/",
